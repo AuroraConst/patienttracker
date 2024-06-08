@@ -43,8 +43,9 @@ lazy val PatientTracker = project.in(file("."))
      */
     libraryDependencies ++= Dependencies.scalajsdom.value,
     libraryDependencies ++= Dependencies.laminar.value,
-    libraryDependencies ++= Dependencies.upickle.value,
+    libraryDependencies ++= Dependencies.upickle.value,  //TODO ? circe vs upickle
     libraryDependencies ++= Dependencies.scalatest.value,
+    libraryDependencies ++=  Dependencies.aurorashared.value,
     libraryDependencies += "io.circe" %%% "circe-core" % "0.14.3",
     libraryDependencies += "io.circe" %%% "circe-generic" % "0.14.3",
     libraryDependencies += "io.circe" %%% "circe-parser" % "0.14.3",

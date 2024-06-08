@@ -4,6 +4,12 @@ import sbt._
 object Dependencies {
 
 
+  val aurorashared = Def.setting {
+    Seq("org.aurora" %%% "parserjs" % "0.0.1-SNAPSHOT",
+       "org.aurora" %%% "dataimportcsv3s" % "0.0.1-SNAPSHOT"
+    )
+  }
+
   val scalajsdom  = Def.setting {
     Seq("org.scala-js" %%% "scalajs-dom" % DependencyVersions.scalajsdom)
   }

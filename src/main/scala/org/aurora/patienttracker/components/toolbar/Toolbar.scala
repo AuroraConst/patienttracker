@@ -7,7 +7,7 @@ import org.scalajs.dom.MouseEvent
 // import models.*
 import org.aurora.patienttracker._
 import org.aurora.patienttracker.components.toolbar.Search
-import org.aurora.patienttracker.components.button.AddButton
+import org.aurora.patienttracker.components.button.ButtonAdd
 
 import org.aurora.patienttracker._, config._
 import client.AuroraClient
@@ -29,7 +29,7 @@ case class Toolbar[A](config: TableConfig[A]) extends AuroraElement {
           Text("Show:").render(),
           Select[A](ShowFilter("", "All", "-1") :: showOptions, config)
               .render(),
-          AddButton("➕", config.client).render()
+          ButtonAdd("➕", config.client).render() 
         )
     }
 

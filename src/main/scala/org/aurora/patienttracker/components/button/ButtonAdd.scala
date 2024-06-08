@@ -5,7 +5,7 @@ import org.aurora.patienttracker.components.AuroraElement
 import java.sql.Date
 import client.AuroraClient
 
-case class AddButton(value: String, client: AuroraClient)
+case class ButtonAdd(value: String, client: AuroraClient)
     extends AuroraElement {
 
     def render(): Element = {
