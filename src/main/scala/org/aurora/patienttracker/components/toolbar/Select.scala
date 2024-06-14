@@ -8,6 +8,7 @@ import org.scalajs.dom
 import org.scalajs.dom.HTMLTableElement
 import org.scalajs.dom.HTMLTableRowElement
 import org.scalajs.dom.HTMLTableCellElement
+import client.AuroraClient
 
 case class Select[A](options: List[ShowFilter], config: TableConfig[A])
     extends AuroraElement {
@@ -43,7 +44,7 @@ case class Select[A](options: List[ShowFilter], config: TableConfig[A])
 
                           })
                       case _ => {
-                          val itemsToShow = config.client.dataModelVar.signal
+                          val itemsToShow = AuroraClient.dataModelVar.signal
                               .now()
                               .filter(items => {
                                   items.flag.getOrElse("") == filter.value

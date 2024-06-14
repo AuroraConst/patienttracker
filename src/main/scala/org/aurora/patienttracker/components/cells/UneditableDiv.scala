@@ -18,7 +18,6 @@ import client.AuroraClient
 
 case class UneditableDiv(
     content: String,
-    model: AuroraClient,
     fieldName: String,
     rowId: String
 ) extends AuroraElement {

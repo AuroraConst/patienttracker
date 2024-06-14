@@ -6,7 +6,6 @@ import client.AuroraClient
 import java.time.format._
 object PatientTrackerConfig {
     val config = TableConfig[Patient](
-      new AuroraClient(),
       _.unitNumber,
       List(
         ColumnConfig[Patient](

@@ -5,14 +5,14 @@ import org.aurora.patienttracker.components.AuroraElement
 import java.sql.Date
 import client.AuroraClient
 
-case class ButtonAdd(value: String, client: AuroraClient)
+case class ButtonAdd(value: String)
     extends AuroraElement {
 
     def render(): Element = {
 
         button(
           value,
-          onClick.flatMap(_ => client.addEntryToDataModelVar()) --> {
+          onClick.flatMap(_ => AuroraClient.addEntryToDataModelVar()) --> {
               responseText =>
                   println(responseText)
           }

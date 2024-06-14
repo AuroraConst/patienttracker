@@ -7,6 +7,7 @@ import org.scalajs.dom
 import org.aurora.patienttracker.components.button.DeleteButton
 import org.aurora.patienttracker.components.utils.VscodeAPI.getVscodeApi
 import zio.json._
+import client.AuroraClient
 case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
     import org.aurora.patienttracker._, roughdraft._
     def render(): Element = {
@@ -14,10 +15,10 @@ case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
         tbody(
           // Fetch the data on component mount, update table
           roughdraft.patients --> { plist =>
-            config.client.dataModelVar.set(plist.getOrElse(Nil))
+            AuroraClient.dataModelVar.set(plist.getOrElse(Nil))
           },
           idAttr := "myTableBody",
-          children <-- config.client.dataModelVar.signal.map(data =>
+          children <-- AuroraClient.dataModelVar.signal.map(data =>
               data.map { item =>
                   val children = config.columnConfigs.map(column => {
                       column.cellHTML(
@@ -45,8 +46,7 @@ case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
                     },
                     children :+ DeleteButton(
                       config.rowIdentifier(item.asInstanceOf[T]),
-                      "➖",
-                      config.client
+                      "➖"
                     )
                         .render()
                   )

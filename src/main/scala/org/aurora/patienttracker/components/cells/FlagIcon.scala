@@ -19,7 +19,6 @@ import org.aurora.patienttracker.components.utils.Icons._
 
 case class FlagIcon(
     content: String,
-    model: AuroraClient,
     fieldName: String,
     rowId: String
 ) extends AuroraElement {
@@ -79,7 +78,7 @@ case class FlagIcon(
               onClick.flatMap(_ =>
                   showIconSelectVar.update(bool => !bool)
                   flagId.update(value => "1")
-                  model.updateEntryInDataModelVar(
+                  AuroraClient.updateEntryInDataModelVar(
                     rowId,
                     fieldName,
                     "1"
@@ -91,7 +90,7 @@ case class FlagIcon(
               onClick.flatMap(_ =>
                   showIconSelectVar.update(bool => !bool)
                   flagId.update(value => "2")
-                  model.updateEntryInDataModelVar(
+                  AuroraClient.updateEntryInDataModelVar(
                     rowId,
                     fieldName,
                     "2"
@@ -103,7 +102,7 @@ case class FlagIcon(
               onClick.flatMap(_ =>
                   showIconSelectVar.update(bool => !bool)
                   flagId.update(value => "3")
-                  model.updateEntryInDataModelVar(
+                  AuroraClient.updateEntryInDataModelVar(
                     rowId,
                     fieldName,
                     "3"
@@ -115,7 +114,7 @@ case class FlagIcon(
               onClick.flatMap(_ =>
                   showIconSelectVar.update(bool => !bool)
                   flagId.update(value => "4")
-                  model.updateEntryInDataModelVar(
+                  AuroraClient.updateEntryInDataModelVar(
                     rowId,
                     fieldName,
                     "4"
@@ -127,7 +126,7 @@ case class FlagIcon(
               onClick.flatMap(_ =>
                   showIconSelectVar.update(bool => !bool)
                   flagId.update(value => "")
-                  model.updateEntryInDataModelVar(
+                  AuroraClient.updateEntryInDataModelVar(
                     rowId,
                     fieldName,
                     ""

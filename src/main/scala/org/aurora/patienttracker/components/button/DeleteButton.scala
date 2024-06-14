@@ -6,7 +6,7 @@ import java.sql.Date
 
 import client.AuroraClient
 
-case class DeleteButton(rowId: String, value: String, dataModel: AuroraClient)
+case class DeleteButton(rowId: String, value: String)
     extends AuroraElement {
 
     val showConfirmVar = Var(false)
@@ -27,7 +27,7 @@ case class DeleteButton(rowId: String, value: String, dataModel: AuroraClient)
               "Yes",
               onClick.flatMap(_ =>
                   showConfirmVar.update(bool => !bool)
-                  dataModel.deleteEntryInDataModelVar(
+                  AuroraClient.deleteEntryInDataModelVar(
                     rowId
                   )
               ) --> { resp => println(resp) }

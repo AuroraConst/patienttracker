@@ -15,7 +15,6 @@ package object config :
   case object UneditableDivType extends CellType
 
   case class TableConfig[T](
-      val client: AuroraClient,
       val rowIdentifier: T => String,
       val columnConfigs: List[ColumnConfig[T]]
   )
@@ -40,21 +39,18 @@ package object config :
             case ToggleableInputType =>
                 ToggleableInput(
                   cellContent(item),
-                  config.client,
                   fieldName,
                   config.rowIdentifier(item)
                 ).render()
             case FlagIconType =>
                 FlagIcon(
                   cellContent(item),
-                  config.client,
                   fieldName,
                   config.rowIdentifier(item)
                 ).render()
             case UneditableDivType =>
                 UneditableDiv(
                   cellContent(item),
-                  config.client,
                   fieldName,
                   config.rowIdentifier(item)
                 ).render()

@@ -18,7 +18,6 @@ import client.AuroraClient
 
 case class ToggleableInput(
     content: String,
-    model: AuroraClient,
     fieldName: String,
     rowId: String
 ) extends AuroraElement {
@@ -38,7 +37,7 @@ case class ToggleableInput(
                     e.target.asInstanceOf[dom.html.Input].value
                   )
                   showInputVar.update(bool => !bool)
-                  model.updateEntryInDataModelVar(
+                  AuroraClient.updateEntryInDataModelVar(
                     rowId,
                     fieldName,
                     e.target.asInstanceOf[dom.html.Input].value

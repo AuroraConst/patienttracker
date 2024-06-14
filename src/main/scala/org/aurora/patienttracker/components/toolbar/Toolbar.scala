@@ -29,7 +29,7 @@ case class Toolbar[A](config: TableConfig[A]) extends AuroraElement {
           Text("Show:").render(),
           Select[A](ShowFilter("", "All", "-1") :: showOptions, config)
               .render(),
-          ButtonAdd("➕", config.client).render() 
+          ButtonAdd("➕").render() 
         )
     }
 

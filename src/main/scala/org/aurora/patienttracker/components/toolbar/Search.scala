@@ -6,7 +6,7 @@ import com.raquo.laminar.api.L.{*, given}
 import org.scalajs.dom
 import com.raquo.airstream.state.StrictSignal
 
-// TODO Refactor search
+
 case class Search(options: List[String]) extends AuroraElement {
 
   val optionsVar = Var(initial = options.headOption.getOrElse("All"))
@@ -99,6 +99,7 @@ case class Search(options: List[String]) extends AuroraElement {
           padding := "10px",
           width := "300px",
           placeholder("Search"),
+          // TODO docere:TO parserjs
           onKeyUp --> { (e) =>
               searchGrid(e, optionsVar.signal)
           }

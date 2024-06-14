@@ -8,23 +8,9 @@ import zio.json._
 import scala.util.Random
 
 
-case class AuroraClient() {
+object AuroraClient {
 
     val dataModelVar = Var(List.empty[Patient])
-
-    // val GETUrl: String = "http://localhost:9000/patients"
-
-    def populateTable(respString: String): Unit = {
-        jsonDecoder(respString).map(item => dataModelVar.update(_ :+ item))
-    }
-
-    def jsonDecoder(jsonString: String): List[Patient] =
-        jsonString.fromJson[List[Patient]].toOption.getOrElse(Nil)
-        // decode[List[Patient]](jsonString) match {
-        //     case Right(patients) => patients
-        //     case Left(error) =>
-        //         throw new RuntimeException(s"Failed to parse JSON: $error")
-        // }
 
     def addEntryToDataModelVar(): EventStream[String] = {
         val random = new Random()
