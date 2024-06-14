@@ -3,29 +3,18 @@ package org.aurora.patienttracker.components.table
 import org.aurora.patienttracker.components.AuroraElement
 import org.aurora.patienttracker._, config._
 import com.raquo.laminar.api.L.{*, given}
-
-import scala.scalajs.js.JSON
-import scala.scalajs.js
-import io.circe.parser._
-import io.circe.generic.auto._
-import utilities.JsonImplicits._
-import com.raquo.laminar.nodes.ReactiveHtmlElement
-import org.scalajs.dom.HTMLTableRowElement
-import client.AuroraClient
+import org.scalajs.dom
 import org.aurora.patienttracker.components.button.DeleteButton
-import org.aurora.patienttracker.components.cells.FlagIcon
-import org.aurora.patienttracker.components.cells.UneditableDiv
-import org.aurora.patienttracker.components.cells.ToggleableInput
 import org.aurora.patienttracker.components.utils.VscodeAPI.getVscodeApi
 
 case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
-
+    import org.aurora.patienttracker._, roughdraft._
     def render(): Element = {
 
         tbody(
           // Fetch the data on component mount, update table
-          FetchStream.get(config.client.GETUrl) --> { responseText =>
-              config.client.populateTable(responseText)
+          roughdraft.patients --> { plist =>
+            config.client.dataModelVar.set(plist.getOrElse(Nil))
           },
           idAttr := "myTableBody",
           children <-- config.client.dataModelVar.signal.map(data =>

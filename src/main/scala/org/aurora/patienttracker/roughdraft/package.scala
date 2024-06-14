@@ -5,9 +5,15 @@ import configs.PatientTrackerConfig.config
 import org.aurora.patienttracker._, config._
 import org.aurora.patienttracker.components.toolbar.Toolbar
 import org.aurora.patienttracker.components.table.Table
+import zio.json._
 
+import org.aurora.shared.dto.Patient
 
 package object roughdraft:
+  val patients = FetchStream.get("http://localhost:8080/patientsjson")
+    .map(_.fromJson[List[Patient]])
+    .map(_.toOption)
+
   val fetchstream = FetchStream.get("http://localhost:8080/patientsjson")
   val hello = Var("hello world VARRRRR")
   def patienttracker = 
@@ -27,7 +33,7 @@ package object roughdraft:
       width := "100%",
       div(
         width := "100%",
-        text <-- fetchstream.map(_.toString)
+        text <--patients.map(p => s"$p")
       )
     )   
 
@@ -35,31 +41,3 @@ package object roughdraft:
 
 object Main:
   val tableConfig = config
-  renderOnDomContentLoaded(
-    dom.document.body,
-    div(
-      idAttr := "patient-tracker-main",
-      width := "100%",
-      div(
-        width := "100%",
-        Toolbar[Patient](tableConfig).render(),
-        Table[Patient](tableConfig).render()
-      )
-    )
-  )
-
-  // Add message listeners
-  dom.document.addEventListener(
-    "message",
-    (e) => {
-        println("Got message from webview!")
-        println(e.asInstanceOf[dom.MessageEvent].data)
-    }
-    )
-
-  def appElement(): Element =
-    div(
-       h1("Chart", img(src:= "/vite.svg")),
-       div("Hello, world 121111xxx!")
-    )
-  end appElement

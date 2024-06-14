@@ -3,28 +3,28 @@ package client
 import com.raquo.laminar.api.L.{*, given}
 import org.scalajs.dom
 import org.scalajs.dom.HttpMethod
-import org.aurora.patienttracker.Patient
-import io.circe.parser._
-import io.circe.generic.auto._
-import utilities.JsonImplicits._
+import org.aurora.shared.dto.Patient
+import zio.json._
 import scala.util.Random
+
 
 case class AuroraClient() {
 
     val dataModelVar = Var(List.empty[Patient])
 
-    val GETUrl: String = "http://localhost:9000/patients"
+    // val GETUrl: String = "http://localhost:9000/patients"
 
     def populateTable(respString: String): Unit = {
         jsonDecoder(respString).map(item => dataModelVar.update(_ :+ item))
     }
 
     def jsonDecoder(jsonString: String): List[Patient] =
-        decode[List[Patient]](jsonString) match {
-            case Right(patients) => patients
-            case Left(error) =>
-                throw new RuntimeException(s"Failed to parse JSON: $error")
-        }
+        jsonString.fromJson[List[Patient]].toOption.getOrElse(Nil)
+        // decode[List[Patient]](jsonString) match {
+        //     case Right(patients) => patients
+        //     case Left(error) =>
+        //         throw new RuntimeException(s"Failed to parse JSON: $error")
+        // }
 
     def addEntryToDataModelVar(): EventStream[String] = {
         val random = new Random()
@@ -58,7 +58,7 @@ case class AuroraClient() {
         })
         FetchStream.post(
           "http://localhost:9000/patients",
-          _.body(newPatient.toJson())
+          _.body(newPatient.toJson)
         )
     }
 
@@ -92,7 +92,7 @@ case class AuroraClient() {
               fieldName,
               newValue
             )
-                .toJson()
+                .toJson
           )
         )
     }
@@ -117,35 +117,35 @@ case class AuroraClient() {
         fieldName match {
             case "unitNumber" =>
                 println("Cannot change unitnumber")
-            case "lastName"  => patient.lastName = newValue
-            case "firstName" => patient.firstName = newValue
-            case "sex"       => patient.sex = newValue
-            case "dob"       => patient.dob = newValue
-            case "hcn"       => patient.hcn = Option(newValue)
-            case "family"    => patient.family = Option(newValue)
-            case "famPriv"   => patient.famPriv = Option(newValue)
-            case "hosp"      => patient.hosp = Option(newValue)
-            case "flag"      => patient.flag = Option(newValue)
+            case "lastName"  => patient.copy(lastName = newValue)
+            case "firstName" => patient.copy(firstName = newValue)
+            case "sex"       => patient.copy(sex = newValue)
+            case "dob"       => patient.copy(dob = newValue)
+            case "hcn"       => patient.copy(hcn = Option(newValue))
+            case "family"    => patient.copy(family = Option(newValue))
+            case "famPriv"   => patient.copy(famPriv = Option(newValue))
+            case "hosp"      => patient.copy(hosp = Option(newValue))
+            case "flag"      => patient.copy(flag = Option(newValue))
             case "address1" =>
-                patient.address1 = Option(newValue)
+                patient.copy(address1 = Option(newValue))
             case "address2" =>
-                patient.address2 = Option(newValue)
-            case "city" => patient.city = Option(newValue)
+                patient.copy(address2 = Option(newValue))
+            case "city" => patient.copy(city = Option(newValue))
             case "province" =>
-                patient.province = Option(newValue)
+                patient.copy(province = Option(newValue))
             case "postalCode" =>
-                patient.postalCode = Option(newValue)
+                patient.copy(postalCode = Option(newValue))
             case "homePhoneNumber" =>
-                patient.homePhoneNumber = Option(newValue)
+                patient.copy(homePhoneNumber = Option(newValue))
             case "workPhoneNumber" =>
-                patient.workPhoneNumber = Option(newValue)
-            case "OHIP" => patient.OHIP = Option(newValue)
+                patient.copy(workPhoneNumber = Option(newValue))
+            case "OHIP" => patient.copy(OHIP = Option(newValue))
             case "familyPhysician" =>
-                patient.familyPhysician = Option(newValue)
+                patient.copy(familyPhysician = Option(newValue))
             case "attending" =>
-                patient.attending = Option(newValue)
-            case "collab1" => patient.collab1 = Option(newValue)
-            case "collab2" => patient.collab2 = Option(newValue)
+                patient.copy(attending = Option(newValue))
+            case "collab1" => patient.copy(collab1 = Option(newValue))
+            case "collab2" => patient.copy(collab2 = Option(newValue))
         }
         patient
     }

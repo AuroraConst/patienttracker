@@ -1,4 +1,5 @@
 package configs
+import org.aurora.shared.dto.Patient
 import org.aurora.patienttracker._, config._
 import org.aurora.patienttracker.given
 import client.AuroraClient
