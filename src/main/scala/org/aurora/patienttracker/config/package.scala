@@ -62,22 +62,3 @@ package object config :
     }
   }     
 end config
-
-// trait HTMLConverter[A]:
-//     def tableCellToHTML(content: String): String
-
-// given flagIconToHTML: HTMLConverter[FlagIcon] with
-//     def tableCellToHTML(
-//         content: String
-//     ): String = "Flag icon should go here"
-
-// given uneditableDivToHTML: HTMLConverter[UneditableDiv] with
-//     def tableCellToHTML(
-//         content: String
-//     ): String = "uneditable div should go here"
-
-// given ToggleableInputToHTML: HTMLConverter[ToggleableInput] with
-//     def tableCellToHTML(
-//         content: String
-//     ): String = "Toggleable input should go here"
-

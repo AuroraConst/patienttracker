@@ -30,11 +30,16 @@ case class AuroraClient() {
         val random = new Random()
         val randomNumber = random.nextInt(90000000) + 10000000
         val newPatient = Patient(
+          "TB" + randomNumber.toString(), 
           "TB" + randomNumber.toString(),
           "",
           "",
           "",
           "2023-04-04",
+          None,
+          None,
+          None,
+          None,
           None,
           None,
           None,

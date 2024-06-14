@@ -3,7 +3,7 @@ import org.aurora.shared.dto.Patient
 import org.aurora.patienttracker._, config._
 import org.aurora.patienttracker.given
 import client.AuroraClient
-
+import java.time.format._
 object PatientTrackerConfig {
     val config = TableConfig[Patient](
       new AuroraClient(),
@@ -26,39 +26,77 @@ object PatientTrackerConfig {
         ),
         ColumnConfig[Patient](
           UneditableDivType,
-          "Unit Number",
+          "Unit No.",
           "150px",
           _.unitNumber,
           "unitNumber"
         ),
         ColumnConfig[Patient](
-          ToggleableInputType,
-          "First Name",
+          UneditableDivType,
+          "Account",
           "150px",
-          _.firstName,
-          "firstName"
+          _.accountNumber,
+          "accountNumber"
         ),
+
         ColumnConfig[Patient](
-          ToggleableInputType,
+          UneditableDivType,
           "Last Name",
           "150px",
           _.lastName,
           "lastName"
         ),
         ColumnConfig[Patient](
-          ToggleableInputType,
+          UneditableDivType,
+          "First Name",
+          "350px",
+          _.firstName,
+          "firstName"
+        ),
+        ColumnConfig[Patient](
+          UneditableDivType,
           "Sex",
           "50px",
           _.sex,
           "sex"
         ),
         ColumnConfig[Patient](
-          ToggleableInputType,
+          UneditableDivType,
           "Date of Birth",
           "150px",
           _.dob,
           "dob"
         ),
+        ColumnConfig[Patient](
+          UneditableDivType,
+          "Adm.Date",
+          "150px",
+          _.admitDate.get.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")),
+          "admissionDate"
+        ),
+        ColumnConfig[Patient](
+          UneditableDivType,
+          "MRP",
+          "150px",
+          _.attending.get,
+          "mrp"
+        ),
+
+        ColumnConfig[Patient](
+          ToggleableInputType,
+          "Floor",
+          "150px",
+          _.floor.get.toString().substring(2),
+          "floor"
+        ),
+        ColumnConfig[Patient](
+          ToggleableInputType,
+          "Room",
+          "150px",
+          _.room.get.toString(),
+          "room"
+        ),
+
         ColumnConfig[Patient](
           ToggleableInputType,
           "In Hospital",

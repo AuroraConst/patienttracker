@@ -13,7 +13,7 @@ import org.aurora.patienttracker.components.utils.DomUtils.addClassnameToElement
 import org.scalajs.dom.Element
 import org.scalajs.dom.HTMLElement
 import com.raquo.laminar.nodes.ReactiveHtmlElement
-import cats.instances.boolean
+// import cats.instances.boolean
 import client.AuroraClient
 
 case class ToggleableInput(
@@ -65,6 +65,7 @@ case class ToggleableInput(
 
     def render() = {
         td(
+          alignContent := "left",
           child <-- ToggleInput(showInputVar.signal),
           tabIndex := 0,
           onClick --> (e =>

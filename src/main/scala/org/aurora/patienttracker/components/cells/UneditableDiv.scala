@@ -13,7 +13,7 @@ import org.aurora.patienttracker.components.utils.DomUtils.addClassnameToElement
 import org.scalajs.dom.Element
 import org.scalajs.dom.HTMLElement
 import com.raquo.laminar.nodes.ReactiveHtmlElement
-import cats.instances.boolean
+// import cats.instances.boolean
 import client.AuroraClient
 
 case class UneditableDiv(
@@ -25,6 +25,7 @@ case class UneditableDiv(
 
     def render() = {
         td(
+          textAlign := "left",
           content,
           tabIndex := 0,
           onClick --> (e => e.target.asInstanceOf[HTMLElement].focus()),

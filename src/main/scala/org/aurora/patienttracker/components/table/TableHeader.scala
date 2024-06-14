@@ -12,6 +12,7 @@ case class TableHeader(headers: List[ColumnConfig[_]]) extends AuroraElement {
     var ascendingSort = true
     def setAscendingSort(value: Boolean): Unit = {
         ascendingSort = value
+        
     }
     var sortOrderMap: Map[Int, SortOrder] = Map()
 

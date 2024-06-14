@@ -1,12 +1,12 @@
 package org.aurora.patienttracker.components.table
 
 import org.aurora.patienttracker.components.AuroraElement
-import org.aurora.patienttracker._, config._
+import org.aurora.patienttracker._, config._, messaging._
 import com.raquo.laminar.api.L.{*, given}
 import org.scalajs.dom
 import org.aurora.patienttracker.components.button.DeleteButton
 import org.aurora.patienttracker.components.utils.VscodeAPI.getVscodeApi
-
+import zio.json._
 case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
     import org.aurora.patienttracker._, roughdraft._
     def render(): Element = {
@@ -38,7 +38,7 @@ case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
                                     item.lastName,
                                     item.unitNumber
                                   )
-                                      .toJson()
+                                      .toJson
                                 )
                         }
 

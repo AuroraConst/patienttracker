@@ -13,7 +13,7 @@ import org.aurora.patienttracker.components.utils.DomUtils.addClassnameToElement
 import org.scalajs.dom.Element
 import org.scalajs.dom.HTMLElement
 import com.raquo.laminar.nodes.ReactiveHtmlElement
-import cats.instances.boolean
+// import cats.instances.boolean
 import client.AuroraClient
 import org.aurora.patienttracker.components.utils.Icons._
 
