@@ -11,14 +11,17 @@ import client.AuroraClient
 case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
     import org.aurora.patienttracker._, roughdraft._
     def render(): Element = {
+        
 
         tbody(
-          // Fetch the data on component mount, update table
           roughdraft.patients --> { plist =>
             AuroraClient.dataModelVar.set(plist.getOrElse(Nil))
+            AuroraClient.updateFilteredList("")
           },
+
+          // Fetch the data on component mount, update table
           idAttr := "myTableBody",
-          children <-- AuroraClient.dataModelVar.signal.map(data =>
+          children <-- AuroraClient.filteredList.signal.map(data =>
               data.map { item =>
                   val children = config.columnConfigs.map(column => {
                       column.cellHTML(

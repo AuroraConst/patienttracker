@@ -100,8 +100,10 @@ case class Search(options: List[String]) extends AuroraElement {
           width := "300px",
           placeholder("Search"),
           // TODO docere:TO parserjs
+          onChange.mapToValue --> client.AuroraClient.filterVar,
           onKeyUp --> { (e) =>
-              searchGrid(e, optionsVar.signal)
+            client.AuroraClient.updateFilteredList("3a")
+            //   searchGrid(e, optionsVar.signal)
           }
         )
       )

@@ -7,10 +7,23 @@ import org.aurora.shared.dto.Patient
 import zio.json._
 import scala.util.Random
 
+import org.aurora.patienttracker._, roughdraft._
 
 object AuroraClient {
 
     val dataModelVar = Var(List.empty[Patient])
+    val filteredList = Var(List.empty[Patient]) 
+    val filterVar = Var("")
+
+
+
+    import org.aurora.patienttracker._, patientfilter._
+    def updateFilteredList(searchstring:String) = 
+        val search = parseSearchTermsForPatient(searchstring)
+        dom.console.log(s"searching for... $search"  )
+        filteredList.set(dataModelVar.now())//.filter(search.include(_)))
+        // filteredList.set(dataModelVar.now().filter(search.include(_)))
+    
 
     def addEntryToDataModelVar(): EventStream[String] = {
         val random = new Random()
