@@ -25,12 +25,12 @@ case class DeleteButton(rowId: String, value: String)
             ),
             button(
               "Yes",
-              onClick.flatMap(_ =>
-                  showConfirmVar.update(bool => !bool)
-                  AuroraClient.deleteEntryInDataModelVar(
-                    rowId
-                  )
-              ) --> { resp => println(resp) }
+              // onClick.flatMap(_ =>
+              //     showConfirmVar.update(bool => !bool)
+              //     AuroraClient.deleteEntryInDataModelVar(
+              //       rowId
+              //     )
+              // ) --> { resp => println(resp) }
             )
           )
         )

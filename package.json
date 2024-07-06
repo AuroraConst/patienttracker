@@ -16,12 +16,21 @@
     ],
     "views": {
       "patient-tracker-view": [
-        { "type": "webview","id": "aurora.patientTracker","name": "Patient Tracker","icon": "assets/patient.png" }
+        {
+          "type": "webview",
+          "id": "aurora.patientTracker",
+          "name": "Patient Tracker",
+          "icon": "assets/patient.png"
+        }
       ]
     },
     "viewsContainers": {
       "activitybar": [
-        {"id": "patient-tracker-view","title": "Patient Tracker","icon": "assets/patient.png"}
+        {
+          "id": "patient-tracker-view",
+          "title": "Patient Tracker",
+          "icon": "assets/patient.png"
+        }
       ]
     }
   },
@@ -37,6 +46,7 @@
     "lint": "eslint src --ext ts"
   },
   "devDependencies": {
+    "@scala-js/vite-plugin-scalajs": "^1.0.0",
     "@types/glob": "^7.1.3",
     "@types/node": "^12.11.7",
     "@types/vscode": "^1.46.0",
@@ -45,10 +55,8 @@
     "eslint": "^7.19.0",
     "glob": "^10.4.1",
     "prettier": "^2.2.1",
-    "vscode-test": "^1.5.0",
-    "@scala-js/vite-plugin-scalajs": "^1.0.0",
     "typescript": "^4.9.5",
-    "vite": "^5.2.12"
-
+    "vite": "^5.2.12",
+    "vscode-test": "^1.5.0"
   }
 }

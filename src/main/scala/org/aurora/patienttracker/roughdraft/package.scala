@@ -7,7 +7,8 @@ import org.aurora.patienttracker.components.toolbar.Toolbar
 import org.aurora.patienttracker.components.table.Table
 import zio.json._
 
-import org.aurora.shared.dto.Patient
+import org.aurora.model.shared.dto.Patient
+import client.AuroraClient
 
 package object roughdraft:
   val patients = FetchStream.get("http://localhost:8080/patientsjson")
@@ -17,7 +18,10 @@ package object roughdraft:
   val fetchstream = FetchStream.get("http://localhost:8080/patientsjson")
   val hello = Var("hello world VARRRRR")
   def patienttracker = 
-     div(
+
+    import org.aurora.model.js.DataModel
+    div(
+
       idAttr := "patient-tracker-main",
       width := "100%",
       div(
@@ -25,7 +29,7 @@ package object roughdraft:
         Toolbar[Patient](Main.tableConfig).render(),
         Table[Patient](Main.tableConfig).render()
       )
-    )
+      )
 
   def roughstuff = 
     div(

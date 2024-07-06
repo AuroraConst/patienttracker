@@ -34,6 +34,7 @@ case class Table[A](tableConfig: TableConfig[A]) extends AuroraElement {
                 val activeCell = dom.document.activeElement
                     .asInstanceOf[HTMLTableCellElement]
                 (e.ctrlKey, e.key) match {
+
                     case (_, "ArrowDown") => {
                         getHTMLTableRowElementOpt(
                           activeCell.closest("tr").nextElementSibling

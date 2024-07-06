@@ -37,11 +37,13 @@ case class ToggleableInput(
                     e.target.asInstanceOf[dom.html.Input].value
                   )
                   showInputVar.update(bool => !bool)
-                  AuroraClient.updateEntryInDataModelVar(
-                    rowId,
-                    fieldName,
-                    e.target.asInstanceOf[dom.html.Input].value
-                  )
+                  EventStream.empty
+                
+                //   AuroraClient.updateEntryInDataModelVar(
+                //     rowId,
+                //     fieldName,
+                //     e.target.asInstanceOf[dom.html.Input].value
+                //   )
               ) --> { resp => println(resp) },
           onKeyUp --> (e => {
               e.key match {

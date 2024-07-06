@@ -1,9 +1,10 @@
 package configs
-import org.aurora.shared.dto.Patient
+import org.aurora.model.shared.dto.Patient
 import org.aurora.patienttracker._, config._
 import org.aurora.patienttracker.given
 import client.AuroraClient
-import java.time.format._
+import org.aurora.dataimport.utils
+
 object PatientTrackerConfig {
     val config = TableConfig[Patient](
       _.unitNumber,
@@ -63,21 +64,21 @@ object PatientTrackerConfig {
           UneditableDivType,
           "Date of Birth",
           "150px",
-          _.dob,
+          _.dob.map{utils.formattedString}.getOrElse(""),
           "dob"
         ),
         ColumnConfig[Patient](
           UneditableDivType,
           "Adm.Date",
           "150px",
-          _.admitDate.get.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")),
+          _.admitDate.map{d => utils.formattedString(d.toLocalDate()) }.getOrElse(""),
           "admissionDate"
         ),
         ColumnConfig[Patient](
           UneditableDivType,
           "MRP",
           "150px",
-          _.attending.get,
+          _.attending.getOrElse(""),
           "mrp"
         ),
 
@@ -85,14 +86,14 @@ object PatientTrackerConfig {
           ToggleableInputType,
           "Floor",
           "150px",
-          _.floor.get.toString().substring(2),
+          _.floor.getOrElse(""),
           "floor"
         ),
         ColumnConfig[Patient](
           ToggleableInputType,
           "Room",
           "150px",
-          _.room.get.toString(),
+          _.room.getOrElse(""),
           "room"
         ),
 

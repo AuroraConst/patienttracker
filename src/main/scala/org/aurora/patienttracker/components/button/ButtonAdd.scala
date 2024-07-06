@@ -12,10 +12,10 @@ case class ButtonAdd(value: String)
 
         button(
           value,
-          onClick.flatMap(_ => AuroraClient.addEntryToDataModelVar()) --> {
-              responseText =>
-                  println(responseText)
-          }
+        //   onClick.flatMap(_ => AuroraClient.addEntryToDataModelVar()) --> {
+        //       responseText =>
+        //           println(responseText)
+        //   }
         )
     }
 

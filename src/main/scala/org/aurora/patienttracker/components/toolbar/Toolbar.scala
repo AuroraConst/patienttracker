@@ -12,6 +12,7 @@ import org.aurora.patienttracker.components.button.ButtonAdd
 import org.aurora.patienttracker._, config._
 import client.AuroraClient
 import org.aurora.patienttracker.components.AuroraElement
+import org.aurora.model.js.DataModel
 
 case class Toolbar[A](config: TableConfig[A]) extends AuroraElement {
 
@@ -22,13 +23,14 @@ case class Toolbar[A](config: TableConfig[A]) extends AuroraElement {
             .flatMap(_.showFilterable.getOrElse(List()))
 
     def render(): Element = {
+        import org.aurora.model.js.DataModel
         div(
           className := "toolbar",
           Text("Search By:", ml = "").render(),
-          Search("All" :: searchByOption).render(),
+          Search().render(),
           Text("Show:").render(),
-          Select[A](ShowFilter("", "All", "-1") :: showOptions, config)
-              .render(),
+        //   Select[A](ShowFilter("", "All", "-1") :: showOptions, config)
+        //       .render(),
           ButtonAdd("➕").render() 
         )
     }

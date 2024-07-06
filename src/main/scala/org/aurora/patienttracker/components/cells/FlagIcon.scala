@@ -75,63 +75,63 @@ case class FlagIcon(
           div(
             div(
               greenFlagElement,
-              onClick.flatMap(_ =>
-                  showIconSelectVar.update(bool => !bool)
-                  flagId.update(value => "1")
-                  AuroraClient.updateEntryInDataModelVar(
-                    rowId,
-                    fieldName,
-                    "1"
-                  )
-              ) --> { resp => println(resp) }
+              // onClick.flatMap(_ =>
+              //     showIconSelectVar.update(bool => !bool)
+              //     flagId.update(value => "1")
+              //     AuroraClient.updateEntryInDataModelVar(
+              //       rowId,
+              //       fieldName,
+              //       "1"
+              //     )
+              // ) --> { resp => println(resp) }
             ),
             div(
               yellowFlagElement,
-              onClick.flatMap(_ =>
-                  showIconSelectVar.update(bool => !bool)
-                  flagId.update(value => "2")
-                  AuroraClient.updateEntryInDataModelVar(
-                    rowId,
-                    fieldName,
-                    "2"
-                  )
-              ) --> { resp => println(resp) }
+              // onClick.flatMap(_ =>
+              //     showIconSelectVar.update(bool => !bool)
+              //     flagId.update(value => "2")
+              //     AuroraClient.updateEntryInDataModelVar(
+              //       rowId,
+              //       fieldName,
+              //       "2"
+              //     )
+              // ) --> { resp => println(resp) }
             ),
             div(
               redFlagElement,
-              onClick.flatMap(_ =>
-                  showIconSelectVar.update(bool => !bool)
-                  flagId.update(value => "3")
-                  AuroraClient.updateEntryInDataModelVar(
-                    rowId,
-                    fieldName,
-                    "3"
-                  )
-              ) --> { resp => println(resp) }
+              // onClick.flatMap(_ =>
+              //     showIconSelectVar.update(bool => !bool)
+              //     flagId.update(value => "3")
+              //     AuroraClient.updateEntryInDataModelVar(
+              //       rowId,
+              //       fieldName,
+              //       "3"
+              //     )
+              // ) --> { resp => println(resp) }
             ),
             div(
               blueFlagElement,
-              onClick.flatMap(_ =>
-                  showIconSelectVar.update(bool => !bool)
-                  flagId.update(value => "4")
-                  AuroraClient.updateEntryInDataModelVar(
-                    rowId,
-                    fieldName,
-                    "4"
-                  )
-              ) --> { resp => println(resp) }
+              // onClick.flatMap(_ =>
+              //     showIconSelectVar.update(bool => !bool)
+              //     flagId.update(value => "4")
+              //     AuroraClient.updateEntryInDataModelVar(
+              //       rowId,
+              //       fieldName,
+              //       "4"
+              //     )
+              // ) --> { resp => println(resp) }
             ),
             div(
               "No Flag",
-              onClick.flatMap(_ =>
-                  showIconSelectVar.update(bool => !bool)
-                  flagId.update(value => "")
-                  AuroraClient.updateEntryInDataModelVar(
-                    rowId,
-                    fieldName,
-                    ""
-                  )
-              ) --> { resp => println(resp) }
+              // onClick.flatMap(_ =>
+              //     showIconSelectVar.update(bool => !bool)
+              //     flagId.update(value => "")
+              //     AuroraClient.updateEntryInDataModelVar(
+              //       rowId,
+              //       fieldName,
+              //       ""
+              //     )
+              // ) --> { resp => println(resp) }
             )
           )
         )

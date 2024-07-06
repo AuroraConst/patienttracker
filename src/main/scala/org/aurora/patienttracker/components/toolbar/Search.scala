@@ -7,9 +7,7 @@ import org.scalajs.dom
 import com.raquo.airstream.state.StrictSignal
 
 
-case class Search(options: List[String]) extends AuroraElement {
-
-  val optionsVar = Var(initial = options.headOption.getOrElse("All"))
+case class Search() extends AuroraElement {
 
   def searchGrid(event: dom.KeyboardEvent, opt: StrictSignal[String]): Unit = {
     val input = dom.document
@@ -89,22 +87,18 @@ case class Search(options: List[String]) extends AuroraElement {
   def render(): Element = {
       div(
         className := "toolbar-search",
-        select(
-          onChange.mapToValue --> optionsVar.writer,
-          value <-- optionsVar.signal,
-          options.map(opt => option(value(opt), opt))
-        ),
+        
         input(
           idAttr := "search-input",
           padding := "10px",
           width := "300px",
           placeholder("Search"),
-          // TODO docere:TO parserjs
-          onChange.mapToValue --> client.AuroraClient.filterVar,
-          onKeyUp --> { (e) =>
-            client.AuroraClient.updateFilteredList("3a")
-            //   searchGrid(e, optionsVar.signal)
-          }
+          onChange.mapToValue --> org.aurora.model.js.DataModel.filterQuery
+          
+        
+        //   onKeyUp --> { (e) =>
+        //     //TODO update my filterVar
+        //   }
         )
       )
   }

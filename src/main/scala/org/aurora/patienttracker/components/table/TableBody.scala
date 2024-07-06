@@ -8,20 +8,18 @@ import org.aurora.patienttracker.components.button.DeleteButton
 import org.aurora.patienttracker.components.utils.VscodeAPI.getVscodeApi
 import zio.json._
 import client.AuroraClient
+import org.aurora.model.js.DataModel
 case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
-    import org.aurora.patienttracker._, roughdraft._
+    import org.aurora.patienttracker._ //, roughdraft._
     def render(): Element = {
         
 
         tbody(
-          roughdraft.patients --> { plist =>
-            AuroraClient.dataModelVar.set(plist.getOrElse(Nil))
-            AuroraClient.updateFilteredList("")
-          },
+         
 
           // Fetch the data on component mount, update table
           idAttr := "myTableBody",
-          children <-- AuroraClient.filteredList.signal.map(data =>
+          children <-- DataModel.filteredPatientTableData.signal.map(data =>
               data.map { item =>
                   val children = config.columnConfigs.map(column => {
                       column.cellHTML(
