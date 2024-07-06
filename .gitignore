@@ -50,6 +50,7 @@ shared/.js
 shared/.jvm
 
 # temp files
+package-lock.json
 .~*
 *~
 *.orig
