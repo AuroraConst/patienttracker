@@ -1,18 +1,18 @@
-package org.aurora.patienttracker.components.toolbar
+package com.axiom.patienttracker.components.toolbar
 
 import org.scalajs.dom
 import com.raquo.laminar.api.L.{*, given}
 import org.scalajs.dom.HTMLTableCellElement
 import org.scalajs.dom.MouseEvent
 // import models.*
-import org.aurora.patienttracker._
-import org.aurora.patienttracker.components.toolbar.Search
-import org.aurora.patienttracker.components.button.ButtonAdd
+import com.axiom.patienttracker._
+import com.axiom.patienttracker.components.toolbar.Search
+import com.axiom.patienttracker.components.button.ButtonAdd
 
-import org.aurora.patienttracker._, config._
+import com.axiom.patienttracker._, config._
 import client.AuroraClient
-import org.aurora.patienttracker.components.AuroraElement
-import org.aurora.model.js.DataModel
+import com.axiom.patienttracker.components.AuroraElement
+import com.axiom.model.js.DataModel
 
 case class Toolbar[A](config: TableConfig[A]) extends AuroraElement {
 
@@ -23,7 +23,7 @@ case class Toolbar[A](config: TableConfig[A]) extends AuroraElement {
             .flatMap(_.showFilterable.getOrElse(List()))
 
     def render(): Element = {
-        import org.aurora.model.js.DataModel
+        import com.axiom.model.js.DataModel
         div(
           className := "toolbar",
           Text("Search By:", ml = "").render(),

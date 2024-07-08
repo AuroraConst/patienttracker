@@ -1,7 +1,7 @@
-package org.aurora.patienttracker.components.toolbar
+package com.axiom.patienttracker.components.toolbar
 
-import org.aurora.patienttracker._, config._
-import org.aurora.patienttracker.components.AuroraElement
+import com.axiom.patienttracker._, config._
+import com.axiom.patienttracker.components.AuroraElement
 import com.raquo.laminar.api.L.{*, given}
 import org.scalajs.dom.HTMLSelectElement
 import org.scalajs.dom

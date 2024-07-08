@@ -1,7 +1,7 @@
-package org.aurora.patienttracker.components.table
+package com.axiom.patienttracker.components.table
 
-import org.aurora.patienttracker._, config._
-import org.aurora.patienttracker.components.AuroraElement
+import com.axiom.patienttracker._, config._
+import com.axiom.patienttracker.components.AuroraElement
 import com.raquo.laminar.api.L.{*, given}
 import utilities.SortGrid.SortOrder.*
 import utilities.SortGrid.*

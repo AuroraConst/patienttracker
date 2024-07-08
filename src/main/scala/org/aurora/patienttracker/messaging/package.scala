@@ -1,4 +1,4 @@
-package org.aurora.patienttracker
+package com.axiom.patienttracker
 import zio.json._
 package object messaging:
   trait Message :

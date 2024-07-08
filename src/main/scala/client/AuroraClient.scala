@@ -3,13 +3,13 @@ package client
 import com.raquo.laminar.api.L.{*, given}
 import org.scalajs.dom
 import org.scalajs.dom.HttpMethod
-import org.aurora.model.shared.dto.Patient
+import com.axiom.model.shared.dto.Patient
 import zio.json._
 import scala.util.Random
 
-import org.aurora.patienttracker._, roughdraft._
-import org.aurora.model.js.DataModel
-import org.aurora.model.js.Fetch
+import com.axiom.patienttracker._, roughdraft._
+import com.axiom.model.js.DataModel
+import com.axiom.model.js.Fetch
 import scala.util.Try
 import com.raquo.airstream.ownership.OneTimeOwner
 import org.scalajs.dom
@@ -24,7 +24,7 @@ object AuroraClient {
 
 
 
-    // import org.aurora.model._, patientfilter._
+    // import com.axiom.model._, patientfilter._
     // def updateFilteredList(searchstring:String) = 
     //     val search = parseSearchTermsForPatient(searchstring)
     //     dom.console.log(s"searching for... $search"  )
@@ -132,10 +132,10 @@ object AuroraClient {
         fieldName: String,
         newValue: String
     ): Patient = {
-        import org.aurora.dataimport.utils.*
+        import com.axiom.dataimport.utils.*
   
 
-        import org.aurora.dataimport.utils.localDate
+        import com.axiom.dataimport.utils.localDate
         fieldName match {
             case "unitNumber" =>
                 println("Cannot change unitnumber")

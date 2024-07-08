@@ -1,6 +1,6 @@
-package org.aurora.patienttracker.components.table
+package com.axiom.patienttracker.components.table
 
-import org.aurora.patienttracker.components.AuroraElement 
+import com.axiom.patienttracker.components.AuroraElement 
 import com.raquo.laminar.api.L.{*, given}
 
 case class TableFooter() extends AuroraElement {

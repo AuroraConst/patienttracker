@@ -1,11 +1,11 @@
-package org.aurora.patienttracker
-import org.aurora.patienttracker.components.cells.{UneditableDiv, FlagIcon, ToggleableInput}
+package com.axiom.patienttracker
+import com.axiom.patienttracker.components.cells.{UneditableDiv, FlagIcon, ToggleableInput}
 
 
 
 
 package object config :
-  import org.aurora.patienttracker.components.cells._
+  import com.axiom.patienttracker.components.cells._
   import client.AuroraClient
 
 

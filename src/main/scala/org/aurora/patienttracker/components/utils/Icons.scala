@@ -1,4 +1,4 @@
-package org.aurora.patienttracker.components.utils
+package com.axiom.patienttracker.components.utils
 
 object Icons {
     val flagBlue =

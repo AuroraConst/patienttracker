@@ -1,21 +1,21 @@
-package org.aurora.patienttracker.components.cells
+package com.axiom.patienttracker.components.cells
 
-import org.aurora.patienttracker.components.AuroraElement
+import com.axiom.patienttracker.components.AuroraElement
 import com.raquo.laminar.api.L.{*, given}
 import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.HTMLTableCellElement
 import org.scalajs.dom
 import org.scalajs.dom.KeyboardEvent
 import org.scalajs.dom.FocusEvent
-import org.aurora.patienttracker.components.utils.DomUtils.removeClassnameFromAll
-import org.aurora.patienttracker.components.utils.DomUtils.addClassnameToElement
+import com.axiom.patienttracker.components.utils.DomUtils.removeClassnameFromAll
+import com.axiom.patienttracker.components.utils.DomUtils.addClassnameToElement
 
 import org.scalajs.dom.Element
 import org.scalajs.dom.HTMLElement
 import com.raquo.laminar.nodes.ReactiveHtmlElement
 // import cats.instances.boolean
 import client.AuroraClient
-import org.aurora.patienttracker.components.utils.Icons._
+import com.axiom.patienttracker.components.utils.Icons._
 
 case class FlagIcon(
     content: String,

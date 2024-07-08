@@ -1,6 +1,6 @@
-package org.aurora.patienttracker.components.toolbar
+package com.axiom.patienttracker.components.toolbar
 
-import org.aurora.patienttracker._, components._
+import com.axiom.patienttracker._, components._
 import com.raquo.laminar.api.L.{*, given}
 
 import org.scalajs.dom
@@ -93,7 +93,7 @@ case class Search() extends AuroraElement {
           padding := "10px",
           width := "300px",
           placeholder("Search"),
-          onChange.mapToValue --> org.aurora.model.js.DataModel.filterQuery
+          onChange.mapToValue --> com.axiom.model.js.DataModel.filterQuery
           
         
         //   onKeyUp --> { (e) =>

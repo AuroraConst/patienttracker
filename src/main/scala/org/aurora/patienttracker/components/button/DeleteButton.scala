@@ -1,7 +1,7 @@
-package org.aurora.patienttracker.components.button
+package com.axiom.patienttracker.components.button
 
 import com.raquo.laminar.api.L.{*, given}
-import org.aurora.patienttracker.components.AuroraElement
+import com.axiom.patienttracker.components.AuroraElement
 import java.sql.Date
 
 import client.AuroraClient

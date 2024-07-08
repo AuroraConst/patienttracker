@@ -1,4 +1,4 @@
-package org.aurora.patienttracker
+package com.axiom.patienttracker
 
 
 import com.raquo.airstream.core.EventStream

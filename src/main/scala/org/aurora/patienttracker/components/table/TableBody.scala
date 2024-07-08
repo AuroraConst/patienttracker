@@ -1,16 +1,16 @@
-package org.aurora.patienttracker.components.table
+package com.axiom.patienttracker.components.table
 
-import org.aurora.patienttracker.components.AuroraElement
-import org.aurora.patienttracker._, config._, messaging._
+import com.axiom.patienttracker.components.AuroraElement
+import com.axiom.patienttracker._, config._, messaging._
 import com.raquo.laminar.api.L.{*, given}
 import org.scalajs.dom
-import org.aurora.patienttracker.components.button.DeleteButton
-import org.aurora.patienttracker.components.utils.VscodeAPI.getVscodeApi
+import com.axiom.patienttracker.components.button.DeleteButton
+import com.axiom.patienttracker.components.utils.VscodeAPI.getVscodeApi
 import zio.json._
 import client.AuroraClient
-import org.aurora.model.js.DataModel
+import com.axiom.model.js.DataModel
 case class TableBody[T](config: TableConfig[T]) extends AuroraElement {
-    import org.aurora.patienttracker._ //, roughdraft._
+    import com.axiom.patienttracker._ //, roughdraft._
     def render(): Element = {
         
 

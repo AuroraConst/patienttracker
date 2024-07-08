@@ -1,6 +1,6 @@
-package org.aurora.patienttracker.components.toolbar
+package com.axiom.patienttracker.components.toolbar
 
-import org.aurora.patienttracker.components.AuroraElement 
+import com.axiom.patienttracker.components.AuroraElement 
 import com.raquo.laminar.api.L.{*, given}
 
 case class Text(

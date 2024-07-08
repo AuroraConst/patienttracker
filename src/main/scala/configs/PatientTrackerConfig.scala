@@ -1,9 +1,9 @@
 package configs
-import org.aurora.model.shared.dto.Patient
-import org.aurora.patienttracker._, config._
-import org.aurora.patienttracker.given
+import com.axiom.model.shared.dto.Patient
+import com.axiom.patienttracker._, config._
+import com.axiom.patienttracker.given
 import client.AuroraClient
-import org.aurora.dataimport.utils
+import com.axiom.dataimport.utils
 
 object PatientTrackerConfig {
     val config = TableConfig[Patient](

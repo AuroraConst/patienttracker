@@ -1,4 +1,4 @@
-package org.aurora.temp
+package com.axiom.temp
 
 import org.scalajs.dom
 import com.raquo.laminar.api.L.{*, given}
@@ -7,7 +7,7 @@ import com.raquo.laminar.api.L.{*, given}
 
 @main
 def PatientTrackerMain(): Unit =
-  import org.aurora.patienttracker._, roughdraft._
+  import com.axiom.patienttracker._, roughdraft._
   renderOnDomContentLoaded(
     dom.document.getElementById("app"),
     patienttracker,

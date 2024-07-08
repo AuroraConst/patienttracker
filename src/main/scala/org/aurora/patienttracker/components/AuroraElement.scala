@@ -1,4 +1,4 @@
-package org.aurora.patienttracker.components
+package com.axiom.patienttracker.components
 
 import com.raquo.laminar.api.L.{*, given}
 

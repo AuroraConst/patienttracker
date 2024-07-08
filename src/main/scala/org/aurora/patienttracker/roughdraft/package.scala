@@ -1,13 +1,13 @@
-package org.aurora.patienttracker
+package com.axiom.patienttracker
 import org.scalajs.dom
 import com.raquo.laminar.api.L.{*, given}
 import configs.PatientTrackerConfig.config
-import org.aurora.patienttracker._, config._
-import org.aurora.patienttracker.components.toolbar.Toolbar
-import org.aurora.patienttracker.components.table.Table
+import com.axiom.patienttracker._, config._
+import com.axiom.patienttracker.components.toolbar.Toolbar
+import com.axiom.patienttracker.components.table.Table
 import zio.json._
 
-import org.aurora.model.shared.dto.Patient
+import com.axiom.model.shared.dto.Patient
 import client.AuroraClient
 
 package object roughdraft:
@@ -19,7 +19,7 @@ package object roughdraft:
   val hello = Var("hello world VARRRRR")
   def patienttracker = 
 
-    import org.aurora.model.js.DataModel
+    import com.axiom.model.js.DataModel
     div(
 
       idAttr := "patient-tracker-main",

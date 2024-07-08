@@ -1,6 +1,6 @@
-package org.aurora.patienttracker.components.table
+package com.axiom.patienttracker.components.table
 
-import org.aurora.patienttracker.components.AuroraElement 
+import com.axiom.patienttracker.components.AuroraElement 
 import com.raquo.laminar.api.L.{*, given}
 import com.raquo.laminar.nodes.ReactiveHtmlElement
 import org.scalajs.dom.HTMLTableRowElement
@@ -11,9 +11,9 @@ import org.scalajs.dom.HTMLTableCellElement
 import org.scalajs.dom.HTMLElement
 import org.scalajs.dom.MouseEvent
 import scala.scalajs.js
-import org.aurora.patienttracker.components.utils.DomUtils.getHTMLTableRowElementOpt
+import com.axiom.patienttracker.components.utils.DomUtils.getHTMLTableRowElementOpt
 import client.AuroraClient
-import org.aurora.patienttracker._,  config._
+import com.axiom.patienttracker._,  config._
 
 case class Table[A](tableConfig: TableConfig[A]) extends AuroraElement {
 
