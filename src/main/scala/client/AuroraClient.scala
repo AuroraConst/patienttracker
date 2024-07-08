@@ -33,6 +33,7 @@ object AuroraClient {
     
 
     def addEntryToDataModelVar(): EventStream[String] = {
+        //TODO this belongs in the model (dataimportcsv3s)
         // val random = new Random()
         // val randomNumber = random.nextInt(90000000) + 10000000
         // val newPatient = Patient(
@@ -79,6 +80,7 @@ object AuroraClient {
         fieldName: String,
         newValue: String
     ): EventStream[String] = {
+        //TODO this belongs in the model (dataimportcsv3s)
         // val item = dataModelVar.now().find(_.unitNumber == itemId)
         // println(s"Updating ${item} at field ${fieldName}...")
         // dataModelVar
@@ -117,6 +119,7 @@ object AuroraClient {
     def deleteEntryInDataModelVar(unitNumber: String): EventStream[String] = {
 
         println("Deleting " + unitNumber + "...")
+        //TODO this belongs in the model (dataimportcsv3s)
         // dataModelVar.update((items) => {
         //     items.filter(_.unitNumber != unitNumber)
         // })
