@@ -5,7 +5,8 @@ object Dependencies {
 
 
   val aurorajslibs = Def.setting {
-    Seq("org.aurora" %%% "parserjs" % "0.0.1-SNAPSHOT",
+    Seq(
+      // "org.aurora" %%% "parserjs" % "0.0.1-SNAPSHOT",
        "org.aurora" %%% "dataimportcsv3s" % "0.0.1-SNAPSHOT"
     )
   }
