@@ -47,15 +47,15 @@
   },
   "devDependencies": {
     "@scala-js/vite-plugin-scalajs": "^1.0.0",
-    "@types/glob": "^7.1.3",
-    "@types/node": "^12.11.7",
-    "@types/vscode": "^1.46.0",
-    "@typescript-eslint/eslint-plugin": "^4.14.1",
-    "@typescript-eslint/parser": "^4.14.1",
-    "eslint": "^7.19.0",
-    "glob": "^10.4.1",
-    "prettier": "^2.2.1",
+    "@types/glob": "^8.1.0",
+    "@types/node": "^22.7.4",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "eslint": "^9.12.0",
+    "glob": "^11.0.0",
+    "prettier": "^3.3.3",
     "typescript": "^4.9.5",
-    "vscode-test": "^1.5.0"
+    "vite": "^5.4.8"
   }
 }
